@@ -15,6 +15,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 //import androidx.compose.foundation.layout.padding
 //import androidx.compose.material3.Scaffold
@@ -36,6 +39,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -115,7 +121,30 @@ fun Login() {
             colors = TextFieldDefaults.colors(
                     focusedIndicatorColor = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent
+                ),
+            visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
+            )
+        Button(onClick = { /*TODO*/ },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(66.dp)
+                .padding(start = 64.dp, end = 64.dp, top = 8.dp, bottom = 8.dp),
+            colors = ButtonDefaults.buttonColors(
+                    Color(android.graphics.Color.parseColor("#7d32a8"))
                 )
+            ) {
+                Text(
+                    text = "Login",
+                    color = Color.White,
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+        Text(text = "Don't remember password? click here",
+            modifier = Modifier.padding(top = 8.dp, bottom = 8.dp),
+            fontSize = 14.sp,
+            color = Color(android.graphics.Color.parseColor("#7d32a8"))
             )
 
     }
