@@ -1,15 +1,13 @@
 package com.example.test_jetpack_compose
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-//import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-//import androidx.compose.foundation.horizontalScroll
-//import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 //import androidx.compose.foundation.layout.fillMaxSize
@@ -49,12 +47,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Login()
+            Test_Jetpack_ComposeTheme {
+                Login()
+            }
         }
     }
-
-
 }
+
 
 @Preview(showBackground = true)
 @Composable
@@ -93,12 +92,15 @@ fun Login() {
                     color = Color(android.graphics.Color.parseColor("#7d32a8")),
                     fontSize = 14.sp
                 ),
-
+            colors = TextFieldDefaults.colors(
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent
+                )
             )
         TextField(value = pass, {text -> pass=text},
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color.Transparent)
+                .background(Color.White)
                 .height(66.dp)
                 .padding(start = 64.dp, end = 64.dp, top = 8.dp, bottom = 8.dp)
                 .border(
@@ -110,7 +112,10 @@ fun Login() {
                 color = Color(android.graphics.Color.parseColor("#7d32a8")),
                 fontSize = 14.sp
                 ),
-
+            colors = TextFieldDefaults.colors(
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent
+                )
             )
 
     }
