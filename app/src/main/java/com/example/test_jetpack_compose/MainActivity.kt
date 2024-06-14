@@ -1,14 +1,15 @@
 package com.example.test_jetpack_compose
 
-import android.content.res.Configuration
+//import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+//import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 //import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,12 +19,12 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
+//import androidx.compose.material3.MaterialTheme
 //import androidx.compose.foundation.layout.padding
 //import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldColors
+//import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -83,7 +84,7 @@ fun Login() {
             color = Color(android.graphics.Color.parseColor("#7d32a8")))
         var user by remember { mutableStateOf("username")}
         var pass by remember { mutableStateOf("password")}
-        var passwordVisible by rememberSaveable() { mutableStateOf(false)}
+        val passwordVisible by rememberSaveable() { mutableStateOf(false)}
         TextField(value = user, {text -> user=text},
             modifier = Modifier
                 .fillMaxWidth()
@@ -106,7 +107,6 @@ fun Login() {
         TextField(value = pass, {text -> pass=text},
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color.White)
                 .height(66.dp)
                 .padding(start = 64.dp, end = 64.dp, top = 8.dp, bottom = 8.dp)
                 .border(
@@ -146,7 +146,15 @@ fun Login() {
             fontSize = 14.sp,
             color = Color(android.graphics.Color.parseColor("#7d32a8"))
             )
-
+        Row {
+            Image(painter = painterResource(id = R.drawable.google), contentDescription = null, Modifier.padding(8.dp))
+            Image(painter = painterResource(id = R.drawable.twitter), contentDescription = null, Modifier.padding(8.dp))
+            Image(painter = painterResource(id = R.drawable.facebook), contentDescription = null, Modifier.padding(8.dp))
+        }
+        Image(painterResource(id = R.drawable.bottom_background),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            )
     }
 }
 //@Composable
